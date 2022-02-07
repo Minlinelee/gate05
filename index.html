@@ -6,23 +6,10 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-   
     <a-scene mindar-image="imageTargetSrc: ./targets.mind; showStats: true;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets> 
-        
+      <a-assets>
         <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/examples/image-tracking/assets/card-example/card.png" />
         <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
-     
-
-    <video id="penguin-sledding" autoplay loop="true" src="penguin-sledding.mp4"></video>
-
-  <!-- Using the asset management system. -->
-  <a-video src="#penguin-sledding" width="16" height="9" position="0 0 -20"></a-video>
-
-  <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-  <a-video src="airbending.mp4"></a-video>
-        
-
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
