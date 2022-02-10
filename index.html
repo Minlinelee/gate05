@@ -6,7 +6,10 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
 
-      
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <!-- <script src="aframe-ar.js"></script> use this (v1.6) if this demo ever breaks-->   
      
     
     <script>
@@ -245,15 +248,21 @@
           <img id="icon-left" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/icon_left.png?v=1644396134037" />
           <img id="icon-right" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/icon_right.png?v=1644396136435" />
   
-          <video id="paintandquest-video-mp4" autoplay="enabled" loop="true" src="https://video.wixstatic.com/video/22c479_49bf0ae767ad4d179ddef50b6de37853/240p/mp4/file.mp4"></video>
-          <video id="paintandquest-video-webm" autoplay="enabled" loop="true" src="http://"></video>
+          <video id="mika-mp4" autoplay="enabled" loop="true" src="https://video.wixstatic.com/video/22c479_49bf0ae767ad4d179ddef50b6de37853/240p/mp4/file.mp4"></video>
+          <video id="mika-webm" autoplay="enabled" loop="true" src="./mika.webm"></video>
          
           <img id="coffeemachine-preview" src="./assets/card-example/portfolio/coffeemachine-preview.png" />
           <img id="peak-preview" src="./assets/card-example/portfolio/peak-preview.png" />
           
-          <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
+          <a-asset-item id="avatarModel" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_eyes.gltf?v=1644461721792"></a-asset-item>
         </a-assets>
 
+
+    <a-scene >
+
+	    
+	    
+	      
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
         </a-camera>
 
@@ -265,8 +274,8 @@
             <a-text value="* Keep targeting the painting *" color="#006666" align="center" width="1" position="0 0.68 0"></a-text>
                <a-text value="Any errors? ->  reload :3" color="#006666" align="center" width="1" position="0 0.63 0"></a-text>
               <a-entity id="portfolio-item0">
-              <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.75" position="0 0.2 0"></a-video>
-              <a-image id="paintandquest-preview-button" class="clickable" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika1.png?v=1644364033288" alpha-test="0.5" position="0 0.2 0" height="0.75" width="1">
+              <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="0.5" height="1" position="0 0.2 0"></a-video>
+              <a-image id="paintandquest-preview-button" class="clickable" src="./mika_play.png" alpha-test="0.5" position="0 0.2 0" height=1" width="0.5">
               </a-image>
             </a-entity>
             <a-entity id="portfolio-item1" visible=false>
@@ -299,7 +308,7 @@
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
           ></a-image>
 
-         
+          <a id="playButton" onclick="play('mika')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
           <a-gltf-model id="avatar" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="#avatarModel"></a-gltf-model>
 
           <a-text id="text" class="clickable" value="" color="black" align="center" width="1" position="0 -0.9 0" geometry="primitive:plane; height: 0.1; width: 1.8;" material="opacity: 0.5"></a-text>
