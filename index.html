@@ -37,7 +37,7 @@
           }
         });
         emailButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "rabbitmankind@gmail.com");
+          text.setAttribute("value", "Jung Min Lee   rabbitmankind@gmail.com");
           currentTab = 'email';
         });
         profileButton.addEventListener('click', function (evt) {
@@ -53,7 +53,8 @@
         const portfolioLeftButton = document.querySelector("#portfolio-left-button");
         const portfolioRightButton = document.querySelector("#portfolio-right-button");
         const paintandquestPreviewButton = document.querySelector("#paintandquest-preview-button");
-
+       
+        
         let y = 0;
         let currentItem = 0;
 
@@ -68,6 +69,7 @@
           y += 0.008;
           if (y >= 0.75) {
             clearInterval(id);
+            
             portfolioLeftButton.setAttribute("visible", true);
             portfolioRightButton.setAttribute("visible", true);
             portfolioLeftButton.addEventListener('click', () => {
@@ -84,10 +86,10 @@
               const testVideo = document.createElement( "video" );
               const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
               if (canplayWebm == "") {
-                document.querySelector("#mika-video-link").setAttribute("src", "#mika-video-mp4");
+                document.querySelector("#paintandquest-video-link").setAttribute("src", "#mika-video-mp4");
                 document.querySelector("#mika-video-mp4").play();
               } else {
-                document.querySelector("#mika-video-link").setAttribute("src", "#mika-video-webm");
+                document.querySelector("#paintandquest-video-link").setAttribute("src", "#mika-video-webm");
                 document.querySelector("#mika-video-webm").play();
               }
             });
@@ -232,22 +234,22 @@
           <img id="icon-left" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/icon_left.png?v=1644396134037" />
           <img id="icon-right" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/icon_right.png?v=1644396136435" />
           
-          <img id="paintandquest-preview" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika1.png?v=1644364033288" />
-          <img id="mika-preview" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_play.png?v=1644462377450" />
+      
+          <img id="paintandquest-preview" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_play.png?v=1644462377450" />
           <video id="mika-video-mp4" autoplay="enabled" loop="true" src="https://video.wixstatic.com/video/22c479_49bf0ae767ad4d179ddef50b6de37853/240p/mp4/file.mp4"></video>
           <video id="mika-video-webm" autoplay="enabled" loop="true" src="https://video.wixstatic.com/video/22c479_7c509d13a1ab4d10b61d34d2f2c27b73/240p/mp4/file.mp4"></video>
           
           
-          
-          <img id="mika_shoes"" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_shoes.png?v=1644465301083" />
-          <img id="mika2"" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika2.png?v=1644470925423" />
+          <img id="mika1" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika1.png?v=1644364033288" />
+          <img id="mika_shoes" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_shoes.png?v=1644465301083" />
+          <img id="mika2" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika2.png?v=1644470925423" />
           
           
   
           
             
                     
-          <a-asset-item id="avatarModel" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_model.gltf?v=1644498102142"></a-asset-item>
+          <a-asset-item id="avatarModel" src=""></a-asset-item>
         </a-assets>
 
         
@@ -262,29 +264,28 @@
         
           
           <a-entity id="video">
-              <a-video id="mika-video-link" webkit-playsinline playsinline width="0.5" height="1" position="0.6 -0.2 0.1" ></a-video>
-              <a-image id="mika-preview-button" class="clickable" src="#mika-preview" alpha-test="0.5" position="0.6 -0.2 0.2" height="1 width="0.5">
+              <a-video id="paintandquest-video-link" webkit-playsinline playsinline height="1" width="0.5"  position="0.6 -0.2 0.1" ></a-video>
+              <a-image id="paintandquest-preview-button" class="clickable" src="#paintandquest-preview" alpha-test="0.5" position="0.6 -0.2 0.12" height="1 width="0.3" material="opacity: 0.8">
               </a-image>
              </a-entity>
              
              
           
           <a-entity visible=false id="portfolio-panel" position="0 0 -0.01">
-            <a-text value="* Keep targeting the painting *" color="black" align="center" height="0.75" width="1" position="0 0.5 0"></a-text>
-            <a-text value="Any errors? ->  reload :3" color="black" align="center" width="1" position="0 0.45 0"></a-text>
-            
-                       
+            <a-text value="* Keep targeting the painting *" color="black" align="center" height="0.77" width="1.2" position="0 0.5 0"></a-text>
+            <a-text value="Any errors? ->  reload :3" color="black" align="center" width="1.2" position="0 0.45 0"></a-text>
+                                   
             
             <a-entity id="portfolio-item0">          
-              <a-image id="paintandquest-preview-button" class="clickable" src="#paintandquest-preview" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
+              <a-image id="portfolio-preview-button" class="clickable" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika1.png?v=1644364033288" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
               </a-image>
             </a-entity>
             <a-entity id="portfolio-item1" visible=false>
-              <a-image class="clickable" src="#mika_shoes" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
+              <a-image class="clickable" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_shoes.png?v=1644465301083" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
               </a-image>
             </a-entity>
             <a-entity id="portfolio-item2" visible=false>
-              <a-image class="clickable" src="#mika2" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
+              <a-image class="clickable" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika2.png?v=1644470925423" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
               </a-image>
             </a-entity>
 
@@ -304,9 +305,9 @@
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
           ></a-image>
 
-          <a-gltf-model id="avatar" rotation="0 0 0" position="0 -0.25 0.2" scale="1000 1000 1000" src="#avatarModel"></a-gltf-model>
+          <a-gltf-model id="avatar" rotation="0 0 0" position="0 -0.25 0.2" scale="1 1 1" src="#avatarModel"></a-gltf-model>
 
-          <a-text id="text" class="clickable" value="" color="black" align="center" width="2" position="0 -1 0" geometry="primitive:plane; height: 0.1; width: 1.8;" material="opacity: 0.5"></a-text>
+          <a-text id="text" class="clickable" value="" color="black" align="center" width="1.2" position="0 -1 0" geometry="primitive:plane; height: 0.1; width: 1.8;" material="opacity: 0.5"></a-text>
         </a-entity>
       </a-scene>
     </div>
