@@ -1,2 +1,2 @@
 # gate05
-A webAR project, which followed HiuKim Yuen's open source (https://github.com/hiukim/mind-ar-js), thank you so murch for the amazing tutorial! 
+A webAR project based on the open source of https://github.com/hiukim/mind-ar-js
