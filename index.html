@@ -28,7 +28,7 @@
 
         let currentTab = '';
         webButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "min_minline");
+          text.setAttribute("value", "@min_minline (Link)");
           currentTab = 'web';
         });
                  text.addEventListener('click', function (evt) {
@@ -36,15 +36,21 @@
             window.location.href="https://www.instagram.com/min_minline/";
           }
         });
+        
         emailButton.addEventListener('click', function (evt) {
           text.setAttribute("value", "Jung Min Lee   rabbitmankind@gmail.com");
           currentTab = 'email';
-        });
+        });        
+  
         profileButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "The digital transfromation of painting");
+          text.setAttribute("value", "The digital transfromation of painting.PDF");
           currentTab = 'profile';
         });
-  
+            text.addEventListener('click', function (evt) {
+          if (currentTab === 'profile') {
+            window.location.href="https://github.com/Minlinelee/gate05/blob/main/The%20digital%20transformation%20of%20painting.pdf";
+          }
+        });
         
       }
 
