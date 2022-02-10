@@ -6,19 +6,13 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <!-- <script src="aframe-ar.js"></script> use this (v1.6) if this demo ever breaks-->   
-     
-    
     <script>
       const showInfo = () => {
         let y = 0;
         const profileButton = document.querySelector("#profile-button");
         const webButton = document.querySelector("#web-button");
         const emailButton = document.querySelector("#email-button");
-       
+     
         const text = document.querySelector("#text");
 
         profileButton.setAttribute("visible", true);
@@ -28,20 +22,20 @@
         setTimeout(() => {
           emailButton.setAttribute("visible", true);
         }, 600);
-   
+        setTimeout(() => {
+          locationButton.setAttribute("visible", true);
+        }, 900);
 
         let currentTab = '';
         webButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "Instgram: min_minline");
+          text.setAttribute("value", "min_minline");
           currentTab = 'web';
         });
-         text.addEventListener('click', function (evt) {
+                 text.addEventListener('click', function (evt) {
           if (currentTab === 'web') {
-            window.location.href="https://instagram.com/min_minline/";
+            window.location.href="https://www.instagram.com/min_minline/";
           }
         });
-        
-        
         emailButton.addEventListener('click', function (evt) {
           text.setAttribute("value", "rabbitmankind@gmail.com");
           currentTab = 'email';
@@ -50,11 +44,10 @@
           text.setAttribute("value", "The digital transfromation of painting");
           currentTab = 'profile';
         });
-    
-       
+  
+        
       }
-      
-      
+
       const showPortfolio = (done) => {
         const portfolio = document.querySelector("#portfolio-panel");
         const portfolioLeftButton = document.querySelector("#portfolio-left-button");
@@ -73,7 +66,7 @@
         }
         const id = setInterval(() => {
           y += 0.008;
-          if (y >= 0.6) {
+          if (y >= 0.75) {
             clearInterval(id);
             portfolioLeftButton.setAttribute("visible", true);
             portfolioRightButton.setAttribute("visible", true);
@@ -91,11 +84,11 @@
               const testVideo = document.createElement( "video" );
               const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
               if (canplayWebm == "") {
-                document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
-                document.querySelector("#paintandquest-video-mp4").play();
+                document.querySelector("#mika-video-link").setAttribute("src", "#mika-video-mp4");
+                document.querySelector("#mika-video-mp4").play();
               } else {
-                document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-webm");
-                document.querySelector("#paintandquest-video-webm").play();
+                document.querySelector("#mika-video-link").setAttribute("src", "#mika-video-webm");
+                document.querySelector("#mika-video-webm").play();
               }
             });
 
@@ -167,8 +160,8 @@
       }
       @media (min-aspect-ratio: 1/1) {
 	#example-scanning-overlay .inner {
-	  width: 70vh;
-	  height: 70vh;
+	  width: 50vh;
+	  height: 50vh;
 	}
       }
       @media (max-aspect-ratio: 1/1) {
@@ -224,9 +217,7 @@
     <div class="example-container">
       <div id="example-scanning-overlay" class="hidden">
 	<div class="inner">
-	  <img src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/gate_preview.png?v=1644359537178"/>     
-    
-    
+	  <img src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/gate_preview.png?v=1644359537178"/>
 	  <div class="scanline"></div>
 	</div>
       </div>
@@ -235,83 +226,87 @@
         <a-assets>
           <img id="card" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/gate_open.png?v=1644359668785" />
           <img id="card_L" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/character_interface.png?v=1644406284085" />
-          <img id="card_R" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/drawing1.png?v=1644407698416" />
- 
           <img id="icon-web" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/web_button.png?v=1644396149407" />
-          
-          
-          
           <img id="icon-profile" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/profile_button.png?v=1644396142268" />
           <img id="icon-email" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/email_button.png?v=1644396130260" />
-          
-          <img id="icon-play" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/play_button.png?v=1644396122380" />
           <img id="icon-left" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/icon_left.png?v=1644396134037" />
           <img id="icon-right" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/icon_right.png?v=1644396136435" />
-  
-          <video id="mika-mp4" autoplay="enabled" loop="true" src="https://video.wixstatic.com/video/22c479_49bf0ae767ad4d179ddef50b6de37853/240p/mp4/file.mp4"></video>
-          <video id="mika-webm" autoplay="enabled" loop="true" src="./mika.webm"></video>
-         
-          <img id="coffeemachine-preview" src="./assets/card-example/portfolio/coffeemachine-preview.png" />
-          <img id="peak-preview" src="./assets/card-example/portfolio/peak-preview.png" />
           
-          <a-asset-item id="avatarModel" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_eyes.gltf?v=1644461721792"></a-asset-item>
+          <img id="paintandquest-preview" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika1.png?v=1644364033288" />
+          <img id="mika-preview" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_play.png?v=1644462377450" />
+          <video id="mika-video-mp4" autoplay="enabled" loop="true" src="https://video.wixstatic.com/video/22c479_49bf0ae767ad4d179ddef50b6de37853/240p/mp4/file.mp4"></video>
+          <video id="mika-video-webm" autoplay="enabled" loop="true" src="https://video.wixstatic.com/video/22c479_7c509d13a1ab4d10b61d34d2f2c27b73/240p/mp4/file.mp4"></video>
+          
+          
+          
+          <img id="mika_shoes"" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_shoes.png?v=1644465301083" />
+          <img id="mika2"" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika2.png?v=1644470925423" />
+          
+          
+  
+          
+            
+                    
+          <a-asset-item id="avatarModel" src="https://cdn.glitch.global/23d009b9-4a05-407c-8180-f233078ffc30/mika_model.gltf?v=1644498102142"></a-asset-item>
         </a-assets>
 
-
-    <a-scene >
-
-	    
-	    
-	      
+        
+        
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
         </a-camera>
 
         <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
-          <a-plane src="#card" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
-        <a-plane src="#card_L" position="-0.6 0.2 0.5" height="0.4" width="0.406" rotation="0 0 0"></a-plane>
-     <a-plane src="#card_R" position="0.6 -0.3 0.5" height="0.516" width="0.4" rotation="0 0 0" material="opacity: 0.8"></a-plane>
+        <a-plane src="#card" position="0 0 0" height="1" width="1" rotation="0 0 0" material="opacity: 0.9"></a-plane>
+        <a-plane src="#card_L" position="-0.5 0.15 0.15" height="0.6" width="0.606" rotation="0 0 0" material="opacity: 0.8"></a-plane>
+          
+        
+          
+          <a-entity id="video">
+              <a-video id="mika-video-link" webkit-playsinline playsinline width="0.5" height="1" position="0.6 -0.2 0.1" ></a-video>
+              <a-image id="mika-preview-button" class="clickable" src="#mika-preview" alpha-test="0.5" position="0.6 -0.2 0.2" height="1 width="0.5">
+              </a-image>
+             </a-entity>
+             
+             
+          
           <a-entity visible=false id="portfolio-panel" position="0 0 -0.01">
-            <a-text value="* Keep targeting the painting *" color="#006666" align="center" width="1" position="0 0.68 0"></a-text>
-               <a-text value="Any errors? ->  reload :3" color="#006666" align="center" width="1" position="0 0.63 0"></a-text>
-              <a-entity id="portfolio-item0">
-              <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="0.5" height="1" position="0 0.2 0"></a-video>
-              <a-image id="paintandquest-preview-button" class="clickable" src="./mika_play.png" alpha-test="0.5" position="0 0.2 0" height=1" width="0.5">
+            <a-text value="* Keep targeting the painting *" color="black" align="center" height="0.75" width="1" position="0 0.5 0"></a-text>
+            <a-text value="Any errors? ->  reload :3" color="black" align="center" width="1" position="0 0.45 0"></a-text>
+            
+                       
+            
+            <a-entity id="portfolio-item0">          
+              <a-image id="paintandquest-preview-button" class="clickable" src="#paintandquest-preview" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
               </a-image>
             </a-entity>
             <a-entity id="portfolio-item1" visible=false>
-              <a-image class="clickable" src="#coffeemachine-preview" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
+              <a-image class="clickable" src="#mika_shoes" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
               </a-image>
             </a-entity>
             <a-entity id="portfolio-item2" visible=false>
-              <a-image class="clickable" src="#peak-preview" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
+              <a-image class="clickable" src="#mika2" alpha-test="0.5" position="0 0 0" height="0.75" width="1">
               </a-image>
             </a-entity>
-            
-            
-    
-            
-            
 
-            <a-image visible=false id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.65 0.25 0" height="0.15" width="0.15"></a-image>
-            <a-image visible=false id="portfolio-right-button" class="clickable" src="#icon-right" position="0.65 0.25 0" height="0.15" width="0.15"></a-image>
+           <a-image visible=false id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.65 0.1 0" height="0.15" width="0.15"></a-image>
+            <a-image visible=false id="portfolio-right-button" class="clickable" src="#icon-right" position="0.65 0.1 0" height="0.15" width="0.15"></a-image>
           </a-entity>
 
-          <a-image visible=false id="profile-button" class="clickable" src="#icon-profile" position="-0.24 -0.7 0" height="0.15" width="0.15"
+          <a-image visible=false id="profile-button" class="clickable" src="#icon-profile" position="-0.38 -0.7 0" height="0.15" width="0.15"
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
           ></a-image>
 
-          <a-image visible=false id="web-button" class="clickable" src="#icon-web" alpha-test="0.5" position="0 -0.7 0" height="0.15" width="0.15"
+          <a-image visible=false id="web-button" class="clickable" src="#icon-web" alpha-test="0.5" position="-0.14 -0.7 0" height="0.15" width="0.15"
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
           ></a-image>
 
-          <a-image visible=false id="email-button" class="clickable" src="#icon-email"  position="0.24 -0.7 0" height="0.15" width="0.15"
+          <a-image visible=false id="email-button" class="clickable" src="#icon-email"  position="0.10 -0.7 0" height="0.15" width="0.15"
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
           ></a-image>
 
-          <a id="playButton" onclick="play('mika')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
-          <a-gltf-model id="avatar" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="#avatarModel"></a-gltf-model>
+          <a-gltf-model id="avatar" rotation="0 0 0" position="0 -0.25 0.2" scale="1000 1000 1000" src="#avatarModel"></a-gltf-model>
 
-          <a-text id="text" class="clickable" value="" color="black" align="center" width="1" position="0 -0.9 0" geometry="primitive:plane; height: 0.1; width: 1.8;" material="opacity: 0.5"></a-text>
+          <a-text id="text" class="clickable" value="" color="black" align="center" width="2" position="0 -1 0" geometry="primitive:plane; height: 0.1; width: 1.8;" material="opacity: 0.5"></a-text>
         </a-entity>
       </a-scene>
     </div>
